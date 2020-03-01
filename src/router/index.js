@@ -1,12 +1,18 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '@/views/home' // 引如home 组件
+import Login from '@/views/login'
 
 Vue.use(VueRouter)
 
 const routes = [{
   path: '/',
   redirect: '/home'
+},
+{
+  path: '/login',
+  name: 'Login',
+  component: Login
 },
 {
   path: '/home',
