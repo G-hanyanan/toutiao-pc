@@ -4,6 +4,11 @@ import router from './router'
 import ElementUi from 'element-ui' // 引入Element-ui框架
 import 'element-ui/lib/theme-chalk/index.css' // 引入样式
 import '@/styles/index.less' // 引入初始化less文件
+import axios from 'axios'
+
+// 配置axios默认地址，全局引用
+axios.defaults.baseURL = 'http://ttapi.research.itcast.cn/mp/v1_0'
+Vue.prototype.$axios = axios
 
 Vue.config.productionTip = false
 Vue.use(ElementUi) // 全局注册ElementUi

@@ -67,9 +67,19 @@ export default {
   },
   methods: {
     submitLoginForm () {
-      this.$refs.loginForm.validate((valid) => {
-        if (valid) {
-          alert('校验通过')
+      this.$refs.loginForm.validate((isOk) => {
+        if (isOk) {
+          // 数据校验成功，发送请求
+          this.$axios({
+            url: '/authorizations', // 请求地址
+            data: this.loginForm, // 请求体参数
+            method: 'post' // 请求类型
+          }).then(res => {
+            // 请求成功，需要将返回的token存储在本地缓存中
+            window.localStorage.setItem('user-token', res.data.data.token)
+          }).catch(err => {
+            console.log(err)
+          })
         } else {
           alert('校验未通过')
           return false
