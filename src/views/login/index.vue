@@ -79,8 +79,8 @@ export default {
             window.localStorage.setItem('user-token', res.data.data.token)
             // 跳转到主页
             this.$router.push('/home')
-          }).catch(err => {
-            console.log(err)
+          }).catch(() => {
+            this.$alert('手机号或者验证码错误')
           })
         } else {
           alert('校验未通过')
