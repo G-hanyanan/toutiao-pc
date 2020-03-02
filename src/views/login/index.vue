@@ -77,6 +77,8 @@ export default {
           }).then(res => {
             // 请求成功，需要将返回的token存储在本地缓存中
             window.localStorage.setItem('user-token', res.data.data.token)
+            // 跳转到主页
+            this.$router.push('/home')
           }).catch(err => {
             console.log(err)
           })
