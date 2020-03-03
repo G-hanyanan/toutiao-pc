@@ -3,7 +3,7 @@
   <el-container>
     <!-- 侧边栏容器 -->
     <el-aside>
-      <h1>侧边栏</h1>
+      <aside-nav></aside-nav>
     </el-aside>
     <!-- 右侧容器 上下布局 用外层容器包裹 -->
     <el-container>
@@ -22,7 +22,13 @@
 </template>
 
 <script>
-export default {}
+import aside from '@/components/home/aside.vue'
+export default {
+  components: {
+    // 侧边栏组件
+    'aside-nav': aside
+  }
+}
 </script>
 
 <style>

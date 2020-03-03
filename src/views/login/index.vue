@@ -1,5 +1,5 @@
 <template>
-  <div class="bg">
+  <div class="loginBg">
     <el-card class="card">
       <!-- 头部logo -->
       <div class="logo">
@@ -66,7 +66,9 @@ export default {
     }
   },
   methods: {
+    // 登录点击事件
     submitLoginForm () {
+      // 表单数据校验
       this.$refs.loginForm.validate((isOk) => {
         if (isOk) {
           // 数据校验成功，发送请求
@@ -80,24 +82,23 @@ export default {
             // 跳转到主页
             this.$router.push('/home')
           }).catch(() => {
+            // 请求失败，弹出错误框
             this.$alert('手机号或者验证码错误')
           })
         } else {
-          alert('校验未通过')
+          // 数据校验失败，发送请求
+          this.$alert('校验未通过')
           return false
         }
       })
-    },
-    resetForm (formName) {
-      this.$refs[formName].resetFields()
     }
   }
 }
 </script>
 
 <style lang="less" scoped>
-.bg {
-  background-image: url("../../assets/img/login_bg.jpg");
+.loginBg {
+  background-image: url("../../assets/img/login_bg2.jpg");
   background-size: cover;
   height: 100vh;
   display: flex;
@@ -107,7 +108,8 @@ export default {
   .card {
     width: 450px;
     height: 350px;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: rgba(255, 255, 255, .1);
+    border: 0 solid #000;
     .logo {
       text-align: center;
     }
