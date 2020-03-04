@@ -10,15 +10,15 @@
           <!-- 用户头像 -->
           <img :src="this.userInfo.photo" alt />
           <!-- 下拉菜单 -->
-          <el-dropdown trigger="click">
+          <el-dropdown trigger="click" @command="logOut">
             <span>
               {{this.userInfo.name}}
               <i class="el-icon-arrow-down"></i>
             </span>
             <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item>个人信息</el-dropdown-item>
-              <el-dropdown-item>git地址</el-dropdown-item>
-              <el-dropdown-item>退出</el-dropdown-item>
+              <el-dropdown-item command="info">个人信息</el-dropdown-item>
+              <el-dropdown-item command="git">git地址</el-dropdown-item>
+              <el-dropdown-item command="logout">退出</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
         </el-row>
@@ -41,9 +41,23 @@ export default {
       url: '/user/profile', // 请求地址
       headers: { Authorization: `Bearer ${token}` } // 请求头参数
     }).then(res => {
+      // 将返回的数据存储到userInfo中
       this.userInfo = res.data.data
-      console.log(res)
     })
+  },
+  methods: {
+    logOut (command) {
+      if (command === 'info') {
+        // 点击个人信息
+      } else if (command === 'git') {
+        // 跳转到git页面
+      } else {
+        // 清除token
+        // 返回到登录页面
+        localStorage.removeItem('user-token')
+        this.$router.push('/login')
+      }
+    }
   }
 }
 </script>
