@@ -1,5 +1,5 @@
 <template>
-  <div class="aside-nav">
+  <div class="layout-aside">
     <!-- 顶部logo图片 -->
     <div class="img" style="textAlign:center">
       <img src="../../assets/img/logo_admin.png" alt />
@@ -51,7 +51,7 @@ export default {}
 </script>
 
 <style lang="less" scopend>
-.aside-nav {
+.layout-aside {
   height: 100vh;
   background-color: #323745;
   .img {
