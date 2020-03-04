@@ -2,14 +2,14 @@
 <!-- 外层容器 所有的子容器都需要放在container内 -->
   <el-container>
     <!-- 侧边栏容器 -->
-    <el-aside>
+    <el-aside width="230px">
       <layout-aside></layout-aside>
     </el-aside>
     <!-- 右侧容器 上下布局 用外层容器包裹 -->
     <el-container>
       <!-- 头部容器 -->
       <el-header>
-        <h1>头部区域</h1>
+        <layout-header></layout-header>
       </el-header>
       <!-- 主要内容区域 -->
       <el-main>
