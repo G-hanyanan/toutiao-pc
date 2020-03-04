@@ -8,11 +8,11 @@
       <el-col :span="12" class="right">
         <el-row type="flex" align="middle" justify="end">
           <!-- 用户头像 -->
-          <img src="../../assets/img/user.jpg" alt />
+          <img :src="this.userInfo.photo" alt />
           <!-- 下拉菜单 -->
           <el-dropdown trigger="click">
             <span>
-              用户名
+              {{this.userInfo.name}}
               <i class="el-icon-arrow-down"></i>
             </span>
             <el-dropdown-menu slot="dropdown">
@@ -33,6 +33,17 @@ export default {
     return {
       userInfo: {}
     }
+  },
+  created () {
+    // 获取用户信息
+    const token = window.localStorage.getItem('user-token')
+    this.$axios({
+      url: '/user/profile', // 请求地址
+      headers: { Authorization: `Bearer ${token}` } // 请求头参数
+    }).then(res => {
+      this.userInfo = res.data.data
+      console.log(res)
+    })
   }
 }
 </script>
@@ -40,7 +51,6 @@ export default {
 <style lang="less" scoped>
 .layout-header {
   height: 60px;
-  border: 1px solid #000;
   .left {
     color: #444;
     i {
