@@ -10,7 +10,7 @@
           <!-- 用户头像 -->
           <img :src="this.userInfo.photo" alt />
           <!-- 下拉菜单 -->
-          <el-dropdown trigger="click" @command="logOut">
+          <el-dropdown class="logout" trigger="click" @command="logOut">
             <span>
               {{this.userInfo.name}}
               <i class="el-icon-arrow-down"></i>
@@ -79,6 +79,10 @@ export default {
       border-radius: 50%;
       margin: 10px
     }
+  }
+  .logout {
+    cursor: pointer;
+    user-select:none
   }
 }
 </style>

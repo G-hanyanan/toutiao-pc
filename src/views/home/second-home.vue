@@ -2,7 +2,7 @@
   <div class="second-home">
     <el-carousel :interval="2000" type="card" height="350px">
       <el-carousel-item v-for="item in list" :key="item">
-        <img :src="item" alt="">
+        <el-image :src="item" :fit="cover"></el-image>
       </el-carousel-item>
     </el-carousel>
   </div>
@@ -25,7 +25,5 @@ export default {
 <style lang="less">
 .second-home {
   height: calc(100vh - 60px);
-  border: 1px solid #000;
-
 }
 </style>
