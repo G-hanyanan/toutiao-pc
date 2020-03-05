@@ -26,8 +26,6 @@ export default {
 .second-home {
   height: calc(100vh - 60px);
   border: 1px solid #000;
-  img {
-    // height: 350px;
-  }
+
 }
 </style>
