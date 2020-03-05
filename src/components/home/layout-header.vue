@@ -41,7 +41,7 @@ export default {
       url: '/user/profile' // 请求地址
     }).then(res => {
       // 将返回的数据存储到userInfo中
-      this.userInfo = res.data.data
+      this.userInfo = res.data
     })
   },
   methods: {

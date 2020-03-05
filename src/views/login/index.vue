@@ -78,7 +78,7 @@ export default {
             method: 'post' // 请求类型
           }).then(res => {
             // 请求成功，需要将返回的token存储在本地缓存中
-            window.localStorage.setItem('user-token', res.data.data.token)
+            window.localStorage.setItem('user-token', res.data.token)
             // 跳转到主页
             this.$router.push('/home')
           }).catch(() => {
