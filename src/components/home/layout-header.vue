@@ -36,10 +36,9 @@ export default {
   },
   created () {
     // 获取用户信息
-    const token = window.localStorage.getItem('user-token')
+
     this.$axios({
-      url: '/user/profile', // 请求地址
-      headers: { Authorization: `Bearer ${token}` } // 请求头参数
+      url: '/user/profile' // 请求地址
     }).then(res => {
       // 将返回的数据存储到userInfo中
       this.userInfo = res.data.data
