@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '@/views/home' // 引如home 组件
 import Login from '@/views/login'
 import secondHome from '@/views/home/second-home'
+import homeComment from '@/views/home/comment'
 
 Vue.use(VueRouter)
 
@@ -20,8 +21,11 @@ const routes = [{
   name: 'Home',
   component: Home,
   children: [{
-    path: '',
+    path: '', // 二级路由默认组件
     component: secondHome
+  }, {
+    path: 'comment', // 二级路由简写地址
+    component: homeComment
   }]
 
 }
