@@ -1,9 +1,15 @@
 // axios拦截器 统一注入token
 import axios from 'axios'
 import router from '@/router'
+import JSONBig from 'json-bigint'
 
 // 配置axios默认地址，
 axios.defaults.baseURL = 'http://ttapi.research.itcast.cn/mp/v1_0'
+// 统一处理大数字问题
+axios.defaults.transformResponse = [function (data) {
+  // 如果data不为空，就返回一个处理过的大数字
+  return data ? JSONBig.parse(data) : {}
+}]
 
 axios.interceptors.request.use(function (config) {
   // axios统一设置token

@@ -59,7 +59,7 @@ export default {
           method: 'put', // 请求类型
           // query参数
           params: {
-            article_id: row.id // 文章id
+            article_id: row.id.toString() // 文章id  大数字BigNum要转换成字符串格式
           },
           //  body参数
           data: {
