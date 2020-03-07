@@ -25,6 +25,9 @@ const routes = [{
   }, {
     path: 'comment', // 二级路由简写地址
     component: () => import('@/views/home/comment') // 按需加载
+  }, {
+    path: 'material', // 二级路由简写地址
+    component: () => import('@/views/home/material') // 按需加载
   }]
 
 }
