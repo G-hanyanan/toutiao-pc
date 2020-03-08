@@ -95,7 +95,19 @@ export default {
       })
     },
     // 删除素材
-    delMaterial (row) {},
+    delMaterial (row) {
+      this.$confirm('你确定要删除该图片吗？', '提示').then(() => {
+        this.$axios({
+          url: '/user/images/' + row.id,
+          method: 'delete'
+        }).then(() => {
+          this.$message.success('删除成功')
+          this.getMaterial()
+        }).catch(() => {
+          this.$message.error('删除失败')
+        })
+      })
+    },
     // 上传素材方法
     upLoad (params) {
       const data = new FormData()
