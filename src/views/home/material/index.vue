@@ -29,10 +29,10 @@
             <img :src="item.url" alt class="image" />
             <!-- 操作按钮 -->
             <el-row class="icon" type="flex" justify="space-around">
-              <el-button type="text">
-                <i class="el-icon-star-on"></i>
+              <el-button type="text" @click='collectOrCancel(item)'>
+                <i class="el-icon-star-on" :style="{color:item.is_collected?'red':'black'}"></i>
               </el-button>
-              <el-button type="text">
+              <el-button type="text" @click='delMaterial(item)'>
                 <i class="el-icon-delete-solid"></i>
               </el-button>
             </el-row>
@@ -81,6 +81,21 @@ export default {
     }
   },
   methods: {
+    // 收藏或者取消收藏
+    collectOrCancel (row) {
+      this.$axios({
+        url: '/user/images/' + row.id,
+        method: 'put',
+        data: { collect: !row.is_collected }
+      }).then(() => {
+        this.$message.success('操作成功')
+        this.getMaterial()
+      }).catch(() => {
+        this.$message.error('操作失败')
+      })
+    },
+    // 删除素材
+    delMaterial (row) {},
     // 上传素材方法
     upLoad (params) {
       const data = new FormData()
