@@ -27,7 +27,7 @@
       </el-table-column>
     </el-table>
     <el-row class="pagination" type="flex" align="middle" justify="center">
-      <!-- total总条数 layout 分页跳配置  -->
+      <!-- total总条数 layout 分页组件配置  -->
       <el-pagination
         @current-change="currentChange"
         :current-page="pages.currentPage"
